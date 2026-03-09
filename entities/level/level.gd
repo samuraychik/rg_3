@@ -37,7 +37,7 @@ func setup() -> void:
 		
 		var pattern_cards: Array[CardData] = []
 		for p in range(pattern_size):
-			pattern_cards.push_back(draw_card())
+			pattern_cards.push_back(get_next_card())
 
 		for pattern_beat in range(pattern_size):
 			var card_data = cards.pop_back()
@@ -53,27 +53,29 @@ func setup() -> void:
 					cues.push_back(CueData.new(cue_time, card_data.symbol))
 					hits.push_back(HitData.new(hit_time, card_data.symbol))
 				var card: Card = CARD.instantiate()
-				slots[pattern_beat].set_card(card)
+				slots[pattern_beat].add_card(card)
 				card.setup(card_data, spawn_time, card_cues, card_hits)
 
+	for slot in slots:
+		slot.next()
 	CueManager.set_cues(cues)
 	HitManager.set_hits(hits)
 	HitManager.set_windows(level.windows)
 	RhythmPlayer.set_song(level.song_file, level.bpm, level.offset, level.db_modifier)
 
 
-func draw_card() -> CardData:
+func get_next_card() -> CardData:
 	if len(cards) <= 0:
 		cards = deck.duplicate()
 		cards.shuffle()
 	return cards.pop_back()
 
 
-func clear_cards() -> void:
+func draw_cards() -> void:
 	for slot in slots:
-		slot.clear()
+		slot.next()
 
 
 func on_hit(hit: HitData, _rating: String) -> void:
 	if hit.symbol == Utils.CardSymbol.LEVER:
-		clear_cards()
+		draw_cards()

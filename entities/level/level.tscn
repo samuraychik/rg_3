@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="3_inxxj"]
 [ext_resource type="Resource" uid="uid://bksf6r4cxrw0l" path="res://resources/card_data/instances/apple_card.tres" id="4_3cy7w"]
 [ext_resource type="Resource" uid="uid://qeg7hn1wysei" path="res://resources/card_data/instances/seven_card.tres" id="5_ed8tr"]
-[ext_resource type="Script" uid="uid://ch2joevrathqr" path="res://entities/slot/slot.gd" id="6_inxxj"]
+[ext_resource type="PackedScene" uid="uid://bnb5txyim3apj" path="res://entities/slot/slot.tscn" id="6_inxxj"]
 
 [node name="Level" type="Node2D" unique_id=229895336]
 script = ExtResource("1_rbxmr")
@@ -14,20 +14,14 @@ deck = Array[ExtResource("3_inxxj")]([ExtResource("4_3cy7w"), ExtResource("4_3cy
 
 [node name="Slots" type="Node2D" parent="." unique_id=1770622425]
 
-[node name="Slot0" type="Node2D" parent="Slots" unique_id=532777874]
+[node name="Slot0" parent="Slots" unique_id=325813856 instance=ExtResource("6_inxxj")]
 unique_name_in_owner = true
-position = Vector2(197, 170)
-script = ExtResource("6_inxxj")
-metadata/_custom_type_script = "uid://ch2joevrathqr"
+position = Vector2(104, 80)
 
-[node name="Slot1" type="Node2D" parent="Slots" unique_id=1356954289]
+[node name="Slot1" parent="Slots" unique_id=838034460 instance=ExtResource("6_inxxj")]
 unique_name_in_owner = true
-position = Vector2(305, 170)
-script = ExtResource("6_inxxj")
-metadata/_custom_type_script = "uid://ch2joevrathqr"
+position = Vector2(160, 80)
 
-[node name="Slot2" type="Node2D" parent="Slots" unique_id=1175730916]
+[node name="Slot2" parent="Slots" unique_id=1686314600 instance=ExtResource("6_inxxj")]
 unique_name_in_owner = true
-position = Vector2(407, 170)
-script = ExtResource("6_inxxj")
-metadata/_custom_type_script = "uid://ch2joevrathqr"
+position = Vector2(216, 80)
