@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://bksf6r4cxrw0l"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_j4lrg"]
+[ext_resource type="Texture2D" uid="uid://cgiqudfy4ctdh" path="res://assets/sprites/symbol_apple.png" id="2_m2ict"]
+
+[resource]
+script = ExtResource("1_j4lrg")
+hits = Array[float]([0.0])
+sprites = ExtResource("2_m2ict")
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

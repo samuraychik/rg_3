@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bnb5txyim3apj"]
+
+[ext_resource type="Script" uid="uid://ch2joevrathqr" path="res://entities/slot/slot.gd" id="1_uv42o"]
+[ext_resource type="Texture2D" uid="uid://b7m1gb4thab5i" path="res://assets/sprites/card_background.png" id="2_bbkgj"]
+
+[node name="Slot" type="Node2D" unique_id=325813856]
+script = ExtResource("1_uv42o")
+
+[node name="BackSprite" type="Sprite2D" parent="." unique_id=606672586]
+modulate = Color(0, 0, 0, 1)
+texture = ExtResource("2_bbkgj")

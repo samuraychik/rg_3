@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://c24augll3l54k"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_al2yf"]
+[ext_resource type="Texture2D" uid="uid://dcra2fm3evvgh" path="res://assets/sprites/symbol_lemon.png" id="2_0fonc"]
+
+[resource]
+script = ExtResource("1_al2yf")
+symbol = 7
+hits = Array[float]([0.25])
+sprites = ExtResource("2_0fonc")
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://qeg7hn1wysei"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_bxxla"]
+[ext_resource type="Texture2D" uid="uid://bwl7s38rdggb5" path="res://assets/sprites/symbol_seven.png" id="2_5wuic"]
+
+[resource]
+script = ExtResource("1_bxxla")
+symbol = 8
+hits = Array[float]([0.0])
+sprites = ExtResource("2_5wuic")
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

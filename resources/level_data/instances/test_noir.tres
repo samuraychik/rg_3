@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://cgrwsn47t2h4p"]
+
+[ext_resource type="Script" uid="uid://cu6jdyq6ls3am" path="res://resources/level_data/level_data.gd" id="1_hteti"]
+[ext_resource type="AudioStream" uid="uid://brijca2dk8amg" path="res://assets/music/JNATHYN - Noir.mp3" id="2_3wrix"]
+[ext_resource type="Script" uid="uid://jkjt3q56s6as" path="res://resources/windows_data/windows_data.gd" id="3_ububw"]
+
+[sub_resource type="Resource" id="Resource_eltcw"]
+script = ExtResource("3_ububw")
+perfect = 40.0
+great = 70.0
+good = 100.0
+ok = 130.0
+metadata/_custom_type_script = "uid://jkjt3q56s6as"
+
+[resource]
+script = ExtResource("1_hteti")
+windows = SubResource("Resource_eltcw")
+song_file = ExtResource("2_3wrix")
+bpm = 105.0
+offset = 50.0
+db_modifier = -10.0
+metadata/_custom_type_script = "uid://cu6jdyq6ls3am"

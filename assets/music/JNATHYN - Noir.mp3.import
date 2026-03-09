@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://brijca2dk8amg"
+path="res://.godot/imported/JNATHYN - Noir.mp3-6f585a71a981a94004ea5676a57d775d.mp3str"
+
+[deps]
+
+source_file="res://assets/music/JNATHYN - Noir.mp3"
+dest_files=["res://.godot/imported/JNATHYN - Noir.mp3-6f585a71a981a94004ea5676a57d775d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=105.0
+beat_count=0
+bar_beats=4

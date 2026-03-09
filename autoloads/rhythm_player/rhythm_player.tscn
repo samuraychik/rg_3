@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnt5voisofcyo"]
+
+[ext_resource type="Script" uid="uid://ckd33dyalmk2m" path="res://autoloads/rhythm_player/rhythm_player.gd" id="1_khuq7"]
+
+[node name="RhythmPlayer" type="AudioStreamPlayer"]
+script = ExtResource("1_khuq7")

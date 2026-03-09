@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://bimivuj6buex2"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_mqdai"]
+[ext_resource type="Texture2D" uid="uid://bfc0k2jk3a0qo" path="res://assets/sprites/symbol_cowbell.png" id="2_2d6tb"]
+
+[resource]
+script = ExtResource("1_mqdai")
+symbol = 5
+hits = Array[float]([0.0, 0.75])
+sprites = ExtResource("2_2d6tb")
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://c5msjymp4xgk4"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_rdpx1"]
+[ext_resource type="Texture2D" uid="uid://kgfx80kh3vpu" path="res://assets/sprites/symbol_cross.png" id="2_x7oy1"]
+
+[resource]
+script = ExtResource("1_rdpx1")
+symbol = 9
+sprites = ExtResource("2_x7oy1")
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

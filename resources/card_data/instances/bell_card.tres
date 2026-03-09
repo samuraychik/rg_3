@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=3 format=3 uid="uid://c4hhgjb070ut"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_vf3rd"]
+[ext_resource type="Texture2D" uid="uid://b6b4l8ith5kuk" path="res://assets/sprites/symbol_bell.png" id="2_5gpdb"]
+
+[resource]
+script = ExtResource("1_vf3rd")
+symbol = 4
+hits = Array[float]([0.0, 0.25])
+sprites = ExtResource("2_5gpdb")
+metadata/_custom_type_script = "uid://bvealhk6b56a8"
