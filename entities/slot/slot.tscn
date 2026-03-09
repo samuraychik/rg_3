@@ -7,5 +7,6 @@
 script = ExtResource("1_uv42o")
 
 [node name="BackSprite" type="Sprite2D" parent="." unique_id=606672586]
-modulate = Color(0, 0, 0, 1)
+modulate = Color(0, 0, 0, 0.38039216)
+z_index = -10
 texture = ExtResource("2_bbkgj")

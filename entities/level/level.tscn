@@ -16,7 +16,7 @@ deck = Array[ExtResource("3_inxxj")]([ExtResource("4_3cy7w"), ExtResource("4_3cy
 
 [node name="Slot0" parent="Slots" unique_id=325813856 instance=ExtResource("6_inxxj")]
 unique_name_in_owner = true
-position = Vector2(104, 80)
+position = Vector2(112, 80)
 
 [node name="Slot1" parent="Slots" unique_id=838034460 instance=ExtResource("6_inxxj")]
 unique_name_in_owner = true
@@ -24,4 +24,4 @@ position = Vector2(160, 80)
 
 [node name="Slot2" parent="Slots" unique_id=1686314600 instance=ExtResource("6_inxxj")]
 unique_name_in_owner = true
-position = Vector2(216, 80)
+position = Vector2(208, 80)

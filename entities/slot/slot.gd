@@ -19,10 +19,5 @@ func next() -> void:
 		return
 	
 	if card:
-		clear()
+		card.despawn()
 	set_card(cards_queue.pop_back())
-
-
-func clear() -> void:
-	remove_child(card)
-	card.despawn()

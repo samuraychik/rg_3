@@ -7,6 +7,7 @@ class_name Card extends Node2D
 
 
 var spawn_beat: float
+var spawned: bool = false
 
 var cues: Array[float]
 var hits: Array[float]
@@ -39,15 +40,18 @@ func _physics_process(_delta: float) -> void:
 	if not RhythmPlayer.playing:
 		return
 
-	if RhythmPlayer.current_beat >= spawn_beat:
+	if not spawned and RhythmPlayer.current_beat >= spawn_beat:
+		spawned = true
 		spawn()
 
 
 func spawn() -> void:
 	show()
+	animator.play("spawn")
 
 func despawn() -> void:
-	queue_free()
+	animator.stop()
+	animator.play("despawn")
 
 func activate() -> void:
 	CueManager.cue.connect(on_cue)
