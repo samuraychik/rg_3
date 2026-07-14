@@ -2,54 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dx00q1vd8y0ck" path="res://autoloads/hit_manager/hit_manager.gd" id="1_8yqhi"]
 [ext_resource type="AudioStream" uid="uid://i5tny6cw8hrb" path="res://assets/sfx/miss.wav" id="1_m85il"]
-[ext_resource type="AudioStream" uid="uid://irlidka4p1ew" path="res://assets/sfx/lemon_hit.wav" id="2_mys12"]
-[ext_resource type="AudioStream" uid="uid://c4da8nmhh4eki" path="res://assets/sfx/apple_hit.wav" id="3_1jpgo"]
-[ext_resource type="AudioStream" uid="uid://dga74s1rn18qb" path="res://assets/sfx/bell_hit.wav" id="4_u1jt7"]
-[ext_resource type="AudioStream" uid="uid://d0e5rq68k5yw3" path="res://assets/sfx/cherry_hit.wav" id="4_xfpby"]
-[ext_resource type="AudioStream" uid="uid://h3hd5dpl2xda" path="res://assets/sfx/clover_hit.wav" id="5_7bjob"]
-[ext_resource type="AudioStream" uid="uid://bl7wx4cy3vl6j" path="res://assets/sfx/cowbell_hit.wav" id="5_kc32u"]
 [ext_resource type="AudioStream" uid="uid://d35k0yryyv024" path="res://assets/sfx/lever_hit.wav" id="5_u1jt7"]
-[ext_resource type="AudioStream" uid="uid://1n4bv2jmnvu6" path="res://assets/sfx/banana_hit.wav" id="8_7bjob"]
 
 [node name="HitManager" type="Node" unique_id=1710784728]
 script = ExtResource("1_8yqhi")
+auto_mode = true
 
 [node name="MissPlayer" type="AudioStreamPlayer" parent="." unique_id=906122297]
 stream = ExtResource("1_m85il")
-max_polyphony = 8
-
-[node name="ApplePlayer" type="AudioStreamPlayer" parent="." unique_id=1247253571]
-stream = ExtResource("3_1jpgo")
-max_polyphony = 8
-
-[node name="CherryPlayer" type="AudioStreamPlayer" parent="." unique_id=1518842722]
-stream = ExtResource("4_xfpby")
-max_polyphony = 8
-
-[node name="BananaPlayer" type="AudioStreamPlayer" parent="." unique_id=728670404]
-stream = ExtResource("8_7bjob")
-volume_db = -10.0
-max_polyphony = 8
-
-[node name="CloverPlayer" type="AudioStreamPlayer" parent="." unique_id=421891226]
-stream = ExtResource("5_7bjob")
-max_polyphony = 8
-
-[node name="BellPlayer" type="AudioStreamPlayer" parent="." unique_id=1291679704]
-stream = ExtResource("4_u1jt7")
-max_polyphony = 8
-
-[node name="CowbellPlayer" type="AudioStreamPlayer" parent="." unique_id=143774839]
-stream = ExtResource("5_kc32u")
-max_polyphony = 8
-
-[node name="StrawberryPlayer" type="AudioStreamPlayer" parent="." unique_id=1446124469]
-stream = ExtResource("8_7bjob")
-max_polyphony = 8
-
-[node name="LemonPlayer" type="AudioStreamPlayer" parent="." unique_id=1650977826]
-stream = ExtResource("2_mys12")
-volume_db = 5.0
 max_polyphony = 8
 
 [node name="LeverPlayer" type="AudioStreamPlayer" parent="." unique_id=465464661]

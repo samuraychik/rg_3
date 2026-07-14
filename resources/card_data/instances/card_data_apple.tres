@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bksf6r4cxrw0l"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_v5nrp"]
+[ext_resource type="PackedScene" uid="uid://cexpte0vlu7ck" path="res://entities/card_symbol/instances/apple/card_symbol_apple.tscn" id="2_8dijf"]
+
+[resource]
+resource_name = "Apple"
+script = ExtResource("1_v5nrp")
+symbol = 1
+symbol_scene = ExtResource("2_8dijf")
+cues = Array[float]([0.0])
+hits = Array[float]([0.0])
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

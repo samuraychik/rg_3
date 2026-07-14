@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://land3sff645s"]
+
+[ext_resource type="Script" uid="uid://cu6jdyq6ls3am" path="res://resources/level_data/level_data.gd" id="1_ppnl1"]
+[ext_resource type="AudioStream" uid="uid://damjdcx02cyfd" path="res://assets/music/glisterv2.mp3" id="2_erdxr"]
+[ext_resource type="Script" uid="uid://jkjt3q56s6as" path="res://resources/windows_data/windows_data.gd" id="3_emqle"]
+
+[sub_resource type="Resource" id="Resource_kxmej"]
+script = ExtResource("3_emqle")
+perfect = 25.0
+great = 40.0
+good = 55.0
+ok = 70.0
+metadata/_custom_type_script = "uid://jkjt3q56s6as"
+
+[resource]
+script = ExtResource("1_ppnl1")
+length = 240.0
+windows = SubResource("Resource_kxmej")
+song_file = ExtResource("2_erdxr")
+bpm = 145.0
+offset = 60.0
+db_modifier = -8.0
+metadata/_custom_type_script = "uid://cu6jdyq6ls3am"

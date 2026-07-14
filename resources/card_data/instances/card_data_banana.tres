@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cryf4h7s2gluq"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_dokvu"]
+[ext_resource type="PackedScene" uid="uid://cklff23iaw0bh" path="res://entities/card_symbol/instances/banana/card_symbol_banana.tscn" id="2_fmj05"]
+
+[resource]
+resource_name = "Banana"
+script = ExtResource("1_dokvu")
+symbol = 2
+symbol_scene = ExtResource("2_fmj05")
+cues = Array[float]([0.0, 0.333, 0.667])
+hits = Array[float]([0.0, 0.333, 0.667])
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

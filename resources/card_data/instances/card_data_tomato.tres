@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://84akw03aldfg"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_inc5d"]
+[ext_resource type="PackedScene" uid="uid://c64ndciuwfo6c" path="res://entities/card_symbol/instances/tomato/card_symbol_tomato.tscn" id="2_yxbfr"]
+
+[resource]
+resource_name = "Tomato"
+script = ExtResource("1_inc5d")
+symbol = 8
+symbol_scene = ExtResource("2_yxbfr")
+cues = Array[float]([0.75])
+hits = Array[float]([0.75])
+curses = Array[int]([0])
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

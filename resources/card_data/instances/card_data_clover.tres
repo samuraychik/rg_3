@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b180a68xtw2qb"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_asw3g"]
+[ext_resource type="PackedScene" uid="uid://5s168siiak65" path="res://entities/card_symbol/instances/clover/card_symbol_clover.tscn" id="2_016ew"]
+
+[resource]
+resource_name = "Clover"
+script = ExtResource("1_asw3g")
+symbol = 3
+symbol_scene = ExtResource("2_016ew")
+cues = Array[float]([0.0, 0.25, 0.5, 0.75])
+hits = Array[float]([0.0, 0.25, 0.5, 0.75])
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

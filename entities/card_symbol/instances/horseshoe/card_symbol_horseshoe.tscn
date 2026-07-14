@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ckug6qu4kehnk"]
+
+[ext_resource type="PackedScene" uid="uid://dfny8po27m1q2" path="res://entities/card_symbol/card_symbol.tscn" id="1_sk734"]
+[ext_resource type="Script" uid="uid://b2jnkue6qeoow" path="res://entities/card_symbol/instances/horseshoe/card_symbol_horseshoe.gd" id="2_uudqj"]
+
+[node name="CardSymbolHorseshoe" unique_id=2069425400 instance=ExtResource("1_sk734")]
+script = ExtResource("2_uudqj")
+
+[node name="HorseshoeAnimator" type="AnimationPlayer" parent="." index="4" unique_id=510442712]

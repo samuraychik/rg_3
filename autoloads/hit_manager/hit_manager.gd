@@ -1,30 +1,30 @@
 extends Node
 
 
+signal no_hits
 signal hit(hit: HitData, rating: String)
-signal miss(miss: HitData)
+signal miss(miss: HitData, late: bool)
 
 
 @onready var miss_player: AudioStreamPlayer = $MissPlayer
-@onready var apple_player: AudioStreamPlayer = $ApplePlayer
-@onready var cherry_player: AudioStreamPlayer = $CherryPlayer
-@onready var banana_player: AudioStreamPlayer = $BananaPlayer
-@onready var clover_player: AudioStreamPlayer = $CloverPlayer
-@onready var bell_player: AudioStreamPlayer = $BellPlayer
-@onready var cowbell_player: AudioStreamPlayer = $CowbellPlayer
-@onready var strawberry_player: AudioStreamPlayer = $StrawberryPlayer
-@onready var lemon_player: AudioStreamPlayer = $LemonPlayer
 @onready var lever_player: AudioStreamPlayer = $LeverPlayer
 
 
+@export var auto_mode: bool = false
+
+
 var windows: Dictionary[Utils.HitRating, float]
-var hits: Array[HitData]
-var next_hit: HitData
+var hits: Dictionary[float, HitArray]
+var hit_beats: Array[float]
+var next_hit: float = -1
 
 
 func set_hits(new_hits: Array[HitData]) -> void:
 	new_hits.sort_custom(_sort_hits)
-	hits = new_hits
+	for hit_data in new_hits:
+		var hit_array: HitArray = hits.get_or_add(hit_data.beat, HitArray.new())
+		hit_array.items.push_back(hit_data)
+	hit_beats = hits.keys()
 	set_next_hit()
 
 
@@ -42,27 +42,42 @@ func set_windows(new_windows: WindowsData) -> void:
 
 
 func set_next_hit() -> void:
-	next_hit = hits.pop_back()
+	if not hit_beats:
+		no_hits.emit()
+		next_hit = -1
+		return
+	next_hit = hit_beats.pop_back()
 
 
 func _physics_process(_delta: float) -> void:
-	if not RhythmPlayer.playing or not next_hit:
+	if not RhythmPlayer.playing or next_hit == -1:
 		return
 	
-	var hit_delta = (RhythmPlayer.current_beat - next_hit.beat) * RhythmPlayer.beat_length * 1000
+	var hit_delta = (RhythmPlayer.current_beat - next_hit) * RhythmPlayer.beat_length * 1000
 	if hit_delta > windows[Utils.HitRating.OK]:
 		print("MISSED: ", hit_delta, "ms")
-		play_miss()
+		for hit_data in hits[next_hit].items:
+			miss.emit(hit_data, true)
+		miss_player.play()
 		set_next_hit()
+		
 
-	if Input.is_action_just_pressed("hit"):
+	if Input.is_action_just_pressed("hit") or (auto_mode and absf(hit_delta) < windows[Utils.HitRating.PERFECT]):
+		if hit_delta < -RhythmPlayer.beat_length * 1000:
+			return
+		
 		if hit_delta < -windows[Utils.HitRating.OK]:
 			print("TOO EARLY: ", hit_delta, "ms")
-			play_miss()
+			for hit_data in hits[next_hit].items:
+				miss.emit(hit_data, false)
+			miss_player.play()
 		else:
 			var rating: String = get_rating_string(hit_delta)
 			print(rating, ": ", hit_delta, "ms")
-			play_hit(rating)
+			for hit_data in hits[next_hit].items:
+				hit.emit(hit_data, rating)
+				if hit_data.symbol == Utils.CardSymbol.LEVER:
+					lever_player.play()
 			set_next_hit()
 
 
@@ -74,37 +89,3 @@ func get_rating_string(hit_delta: float) -> String:
 	elif abs(hit_delta) < windows[Utils.HitRating.GOOD]:
 		return "GOOD"
 	return "OK"
-
-
-func get_sfx_player(symbol: Utils.CardSymbol) -> AudioStreamPlayer:
-	match symbol:
-		Utils.CardSymbol.APPLE:
-			return apple_player
-		Utils.CardSymbol.CHERRY:
-			return cherry_player
-		Utils.CardSymbol.BANANA:
-			return banana_player
-		Utils.CardSymbol.CLOVER:
-			return clover_player
-		Utils.CardSymbol.BELL:
-			return bell_player
-		Utils.CardSymbol.COWBELL:
-			return cowbell_player
-		Utils.CardSymbol.STRAWBERRY:
-			return strawberry_player
-		Utils.CardSymbol.LEMON:
-			return lemon_player
-		Utils.CardSymbol.LEVER:
-			return lever_player
-		_:
-			return apple_player
-
-
-func play_hit(rating: String) -> void:
-	hit.emit(next_hit, rating)
-	get_sfx_player(next_hit.symbol).play()
-
-
-func play_miss() -> void:
-	miss.emit(next_hit)
-	miss_player.play()

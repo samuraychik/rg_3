@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dnx1imyh45jhm"]
+
+[ext_resource type="Shader" uid="uid://hj5crnisuou0" path="res://shaders/card_muted/card_muted.gdshader" id="1_hxmln"]
+
+[resource]
+shader = ExtResource("1_hxmln")

@@ -1,12 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://xpepqvafv3d8"]
+[gd_scene format=3 uid="uid://xpepqvafv3d8"]
 
 [ext_resource type="Script" uid="uid://1fe7krcq7dgo" path="res://autoloads/cue_manager/cue_manager.gd" id="1_of4pp"]
 [ext_resource type="AudioStream" uid="uid://c0w6bwoqv7bo6" path="res://assets/sfx/generic_cue.wav" id="2_cqgpu"]
 
-[node name="CueManager" type="Node"]
+[node name="CueManager" type="Node" unique_id=1866749774]
 script = ExtResource("1_of4pp")
 
-[node name="GenericPlayer" type="AudioStreamPlayer" parent="."]
+[node name="LeverPlayer" type="AudioStreamPlayer" parent="." unique_id=136625693]
 stream = ExtResource("2_cqgpu")
-volume_db = -5.0
 max_polyphony = 8

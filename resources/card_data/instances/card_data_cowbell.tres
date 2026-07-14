@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://bimivuj6buex2"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_mqdai"]
+[ext_resource type="PackedScene" uid="uid://dk2w56ibv0473" path="res://entities/card_symbol/instances/cowbell/card_symbol_cowbell.tscn" id="2_5d0b3"]
+
+[resource]
+resource_name = "Cowbell"
+script = ExtResource("1_mqdai")
+symbol = 5
+symbol_scene = ExtResource("2_5d0b3")
+cues = Array[float]([0.0, 0.75])
+hits = Array[float]([0.0, 0.75])
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

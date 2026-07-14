@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://vm334jqbvcui"]
+
+[ext_resource type="Script" uid="uid://bu7c1py15uvos" path="res://scenes/level_scene/level_scene.gd" id="1_odx7e"]
+[ext_resource type="FontFile" uid="uid://e72x4g8c1eqo" path="res://assets/fonts/ari-w9500-display.ttf" id="4_10ca3"]
+[ext_resource type="PackedScene" uid="uid://bnb5txyim3apj" path="res://entities/slot/slot.tscn" id="4_kxscv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_odx7e"]
+font = ExtResource("4_10ca3")
+font_size = 14
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dq1ac"]
+font = ExtResource("4_10ca3")
+font_size = 10
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i3xij"]
+font = ExtResource("4_10ca3")
+font_size = 10
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_kxscv"]
+font = ExtResource("4_10ca3")
+font_size = 10
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="LevelScene" type="Node2D" unique_id=229895336]
+script = ExtResource("1_odx7e")
+
+[node name="Slots" type="Node2D" parent="." unique_id=1770622425]
+
+[node name="Slot0" parent="Slots" unique_id=325813856 instance=ExtResource("4_kxscv")]
+unique_name_in_owner = true
+position = Vector2(112, 88)
+
+[node name="Slot1" parent="Slots" unique_id=838034460 instance=ExtResource("4_kxscv")]
+unique_name_in_owner = true
+position = Vector2(160, 88)
+
+[node name="Slot2" parent="Slots" unique_id=1686314600 instance=ExtResource("4_kxscv")]
+unique_name_in_owner = true
+position = Vector2(208, 88)
+
+[node name="ComboLabel" type="Label" parent="." unique_id=559178435]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 152.0
+offset_top = 8.0
+offset_right = 168.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0"
+label_settings = SubResource("LabelSettings_odx7e")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RatingLabel" type="Label" parent="." unique_id=2053240978]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 136.0
+offset_top = 24.0
+offset_right = 184.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Great!"
+label_settings = SubResource("LabelSettings_dq1ac")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreTLabel" type="Label" parent="." unique_id=1478602172]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 272.0
+offset_top = 8.0
+offset_right = 312.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score"
+label_settings = SubResource("LabelSettings_i3xij")
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=322089157]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 256.0
+offset_top = 24.0
+offset_right = 312.0
+offset_bottom = 40.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "100"
+label_settings = SubResource("LabelSettings_kxscv")
+horizontal_alignment = 2
+vertical_alignment = 1

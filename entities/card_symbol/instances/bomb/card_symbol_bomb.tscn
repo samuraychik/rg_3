@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://g4ihfokefsjy"]
+
+[ext_resource type="PackedScene" uid="uid://dfny8po27m1q2" path="res://entities/card_symbol/card_symbol.tscn" id="1_c32cu"]
+[ext_resource type="Script" uid="uid://5vnsobo5opvc" path="res://entities/card_symbol/instances/bomb/card_symbol_bomb.gd" id="2_ckdft"]
+[ext_resource type="Texture2D" uid="uid://ikeeuf1h2vh2" path="res://assets/sprites/symbol_bomb.png" id="2_vth7g"]
+[ext_resource type="AudioStream" uid="uid://i5tny6cw8hrb" path="res://assets/sfx/miss.wav" id="3_ckdft"]
+
+[node name="CardSymbolBomb" unique_id=2069425400 instance=ExtResource("1_c32cu")]
+script = ExtResource("2_ckdft")
+
+[node name="Sprite" parent="." index="0" unique_id=542445618]
+texture = ExtResource("2_vth7g")
+
+[node name="HitPlayer" parent="." index="3" unique_id=6485545]
+stream = ExtResource("3_ckdft")

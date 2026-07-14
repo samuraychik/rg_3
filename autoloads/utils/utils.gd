@@ -19,7 +19,18 @@ enum CardSymbol {
 	COWBELL,
 	STRAWBERRY,
 	LEMON,
+	TOMATO,
 	SEVEN,
-	X,
+	GRAPE,
+	BOMB,
+	THEO,
+	HORSESHOE,
 	LEVER,
+}
+
+
+enum Curse {
+	MUTED,
+	DIRTY,
+	OFFBEAT,
 }

@@ -6,14 +6,15 @@
 
 [sub_resource type="Resource" id="Resource_eltcw"]
 script = ExtResource("3_ububw")
-perfect = 40.0
-great = 70.0
-good = 100.0
-ok = 130.0
+perfect = 20.0
+great = 40.0
+good = 60.0
+ok = 80.0
 metadata/_custom_type_script = "uid://jkjt3q56s6as"
 
 [resource]
 script = ExtResource("1_hteti")
+length = 120.0
 windows = SubResource("Resource_eltcw")
 song_file = ExtResource("2_3wrix")
 bpm = 105.0

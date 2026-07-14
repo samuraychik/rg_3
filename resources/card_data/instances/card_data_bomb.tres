@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c5msjymp4xgk4"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_gl8yo"]
+[ext_resource type="PackedScene" uid="uid://g4ihfokefsjy" path="res://entities/card_symbol/instances/bomb/card_symbol_bomb.tscn" id="2_b1l7s"]
+
+[resource]
+resource_name = "Bomb"
+script = ExtResource("1_gl8yo")
+symbol = 11
+symbol_scene = ExtResource("2_b1l7s")
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

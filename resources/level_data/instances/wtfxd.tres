@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://bgd0ngku5hmjs"]
+
+[ext_resource type="Script" uid="uid://cu6jdyq6ls3am" path="res://resources/level_data/level_data.gd" id="1_gy8us"]
+[ext_resource type="AudioStream" uid="uid://ch4fr72nkujf1" path="res://assets/music/wtfxd.mp3" id="2_a0y2d"]
+[ext_resource type="Script" uid="uid://jkjt3q56s6as" path="res://resources/windows_data/windows_data.gd" id="3_tg83k"]
+
+[sub_resource type="Resource" id="Resource_3aeon"]
+script = ExtResource("3_tg83k")
+perfect = 30.0
+great = 60.0
+good = 90.0
+ok = 120.0
+metadata/_custom_type_script = "uid://jkjt3q56s6as"
+
+[resource]
+script = ExtResource("1_gy8us")
+length = 210.0
+windows = SubResource("Resource_3aeon")
+song_file = ExtResource("2_a0y2d")
+bpm = 150.0
+offset = 105.0
+db_modifier = -10.0
+metadata/_custom_type_script = "uid://cu6jdyq6ls3am"

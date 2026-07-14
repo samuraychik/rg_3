@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://bpu6kiq0wirt4"]
+
+[ext_resource type="PackedScene" uid="uid://dfny8po27m1q2" path="res://entities/card_symbol/card_symbol.tscn" id="1_qcwb8"]
+[ext_resource type="Script" uid="uid://deasxam8wlm53" path="res://entities/card_symbol/instances/seven/card_symbol_seven.gd" id="2_5yry0"]
+[ext_resource type="Texture2D" uid="uid://bwl7s38rdggb5" path="res://assets/sprites/symbol_seven.png" id="3_rcfm6"]
+[ext_resource type="AudioStream" uid="uid://ducrtsnc2cpsc" path="res://assets/sfx/seven_hit.wav" id="4_05fih"]
+
+[sub_resource type="Animation" id="Animation_05fih"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_83786"]
+resource_name = "cue"
+length = 0.10000167
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03333334, 0.1),
+"transitions": PackedFloat32Array(1, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_uwh87"]
+resource_name = "hit"
+length = 0.10000167
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03333334, 0.1),
+"transitions": PackedFloat32Array(1, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"next_frame"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_2pbjr"]
+resource_name = "hit_amen"
+length = 0.10000167
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03333334, 0.1),
+"transitions": PackedFloat32Array(1, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2pbjr"]
+_data = {
+&"RESET": SubResource("Animation_05fih"),
+&"cue": SubResource("Animation_83786"),
+&"hit": SubResource("Animation_uwh87"),
+&"hit_amen": SubResource("Animation_2pbjr")
+}
+
+[node name="CardSymbolSeven" unique_id=2069425400 instance=ExtResource("1_qcwb8")]
+script = ExtResource("2_5yry0")
+
+[node name="Sprite" parent="." index="0" unique_id=542445618]
+texture = ExtResource("3_rcfm6")
+hframes = 2
+
+[node name="HitPlayer" parent="." index="3" unique_id=6485545]
+stream = ExtResource("4_05fih")
+
+[node name="SevenAnimator" type="AnimationPlayer" parent="." index="4" unique_id=600073160]
+libraries/ = SubResource("AnimationLibrary_2pbjr")

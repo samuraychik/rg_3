@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://fi071o5s7os0"]
+
+[ext_resource type="Script" uid="uid://4b3yyp8fcu7r" path="res://scenes/choice_scene/choice_scene.gd" id="1_2tbrs"]
+
+[node name="ChoiceScene" type="Control" unique_id=1755525039]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2tbrs")
+
+[node name="Option1Button" type="Button" parent="." unique_id=1935247992]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 97.0
+offset_right = 136.0
+offset_bottom = 128.0
+text = "Option 1"
+
+[node name="Option2Button" type="Button" parent="." unique_id=1790906085]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 96.0
+offset_right = 264.0
+offset_bottom = 127.0
+text = "Option 2"
+
+[connection signal="pressed" from="Option1Button" to="." method="_on_option_1_button_pressed"]
+[connection signal="pressed" from="Option2Button" to="." method="_on_option_2_button_pressed"]

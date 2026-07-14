@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://cc2q4tg8s047p"]
+
+[ext_resource type="Script" uid="uid://cu6jdyq6ls3am" path="res://resources/level_data/level_data.gd" id="1_hwmbs"]
+[ext_resource type="Script" uid="uid://jkjt3q56s6as" path="res://resources/windows_data/windows_data.gd" id="2_etxog"]
+[ext_resource type="AudioStream" uid="uid://bmibdciotyhnc" path="res://assets/music/take_five.mp3" id="2_i1y02"]
+
+[sub_resource type="Resource" id="Resource_i1y02"]
+script = ExtResource("2_etxog")
+perfect = 20.0
+great = 40.0
+good = 60.0
+ok = 80.0
+metadata/_custom_type_script = "uid://jkjt3q56s6as"
+
+[resource]
+script = ExtResource("1_hwmbs")
+length = 90.0
+windows = SubResource("Resource_i1y02")
+song_file = ExtResource("2_i1y02")
+bpm = 110.0
+bar_size = 5
+offset = 10.0
+metadata/_custom_type_script = "uid://cu6jdyq6ls3am"

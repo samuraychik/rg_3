@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c4hhgjb070ut"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_vf3rd"]
+[ext_resource type="PackedScene" uid="uid://gfrme4uml2wb" path="res://entities/card_symbol/instances/bell/card_symbol_bell.tscn" id="2_e625v"]
+
+[resource]
+resource_name = "Bell"
+script = ExtResource("1_vf3rd")
+symbol = 4
+symbol_scene = ExtResource("2_e625v")
+cues = Array[float]([0.0, 0.25])
+hits = Array[float]([0.0, 0.25])
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

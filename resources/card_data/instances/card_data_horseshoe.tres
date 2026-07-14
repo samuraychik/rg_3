@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cmif762wtbfnx"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_7gqkv"]
+
+[resource]
+resource_name = "Horseshoe"
+script = ExtResource("1_7gqkv")
+symbol = 13
+cues = Array[float]([0.0])
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

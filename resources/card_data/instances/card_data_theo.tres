@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://7xuagbuxfb46"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_4cppe"]
+[ext_resource type="PackedScene" uid="uid://b1ldq2vpl62pr" path="res://entities/card_symbol/instances/theo/card_symbol_theo.tscn" id="2_4r8j1"]
+
+[resource]
+resource_name = "Theo"
+script = ExtResource("1_4cppe")
+symbol = 12
+symbol_scene = ExtResource("2_4r8j1")
+cues = Array[float]([0.0])
+hits = Array[float]([0.0])
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

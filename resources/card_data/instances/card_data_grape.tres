@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://l1m8ti11fbrp"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_v3e4i"]
+[ext_resource type="PackedScene" uid="uid://b7ps7j45c2gy3" path="res://entities/card_symbol/instances/grape/card_symbol_grape.tscn" id="2_n61x8"]
+
+[resource]
+resource_name = "Grape"
+script = ExtResource("1_v3e4i")
+symbol = 10
+symbol_scene = ExtResource("2_n61x8")
+cues = Array[float]([0.0, 1.5])
+hits = Array[float]([0.0, 1.5])
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

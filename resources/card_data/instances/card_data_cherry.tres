@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://b72e0g7ywd27p"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_ei3iw"]
+[ext_resource type="PackedScene" uid="uid://by8wyksw0sr1e" path="res://entities/card_symbol/instances/cherry/card_symbol_cherry.tscn" id="2_5rl0v"]
+
+[resource]
+resource_name = "Cherry"
+script = ExtResource("1_ei3iw")
+symbol = 1
+symbol_scene = ExtResource("2_5rl0v")
+cues = Array[float]([0.0, 0.5])
+hits = Array[float]([0.0, 0.5])
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

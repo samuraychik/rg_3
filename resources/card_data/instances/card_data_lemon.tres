@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://c24augll3l54k"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_jfj55"]
+[ext_resource type="PackedScene" uid="uid://gw1dt6m03aqs" path="res://entities/card_symbol/instances/lemon/card_symbol_lemon.tscn" id="2_0ym77"]
+
+[resource]
+resource_name = "Lemon"
+script = ExtResource("1_jfj55")
+symbol = 7
+symbol_scene = ExtResource("2_0ym77")
+cues = Array[float]([0.25])
+hits = Array[float]([0.25])
+curses = Array[int]([0])
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

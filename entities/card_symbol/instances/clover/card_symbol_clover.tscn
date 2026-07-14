@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://5s168siiak65"]
+
+[ext_resource type="PackedScene" uid="uid://dfny8po27m1q2" path="res://entities/card_symbol/card_symbol.tscn" id="1_42rym"]
+[ext_resource type="Script" uid="uid://dwvuej34qdvk0" path="res://entities/card_symbol/instances/clover/card_symbol_clover.gd" id="2_ic8dc"]
+[ext_resource type="Texture2D" uid="uid://b6hxxwg7mvijj" path="res://assets/sprites/symbol_clover.png" id="2_yj14a"]
+[ext_resource type="AudioStream" uid="uid://h3hd5dpl2xda" path="res://assets/sfx/clover_hit.wav" id="3_ic8dc"]
+
+[sub_resource type="Animation" id="Animation_i1qny"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yj14a"]
+resource_name = "cue"
+length = 0.10000167
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
+"transitions": PackedFloat32Array(1, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ic8dc"]
+resource_name = "hit"
+length = 0.10000167
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
+"transitions": PackedFloat32Array(1, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"next_frame"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i1qny"]
+_data = {
+&"RESET": SubResource("Animation_i1qny"),
+&"cue": SubResource("Animation_yj14a"),
+&"hit": SubResource("Animation_ic8dc")
+}
+
+[node name="CardSymbolClover" unique_id=2069425400 instance=ExtResource("1_42rym")]
+script = ExtResource("2_ic8dc")
+
+[node name="Sprite" parent="." index="0" unique_id=542445618]
+texture = ExtResource("2_yj14a")
+hframes = 5
+
+[node name="HitPlayer" parent="." index="3" unique_id=6485545]
+stream = ExtResource("3_ic8dc")
+
+[node name="CloverAnimator" type="AnimationPlayer" parent="." index="4" unique_id=1987415686]
+libraries/ = SubResource("AnimationLibrary_i1qny")

@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="LevelData" format=3 uid="uid://dy4ue833d6q3y"]
+
+[ext_resource type="Script" uid="uid://cu6jdyq6ls3am" path="res://resources/level_data/level_data.gd" id="1_50xy1"]
+[ext_resource type="AudioStream" uid="uid://f8y60ldf1khx" path="res://assets/music/rainState.mp3" id="2_8i2gc"]
+[ext_resource type="Script" uid="uid://jkjt3q56s6as" path="res://resources/windows_data/windows_data.gd" id="3_kfv7r"]
+
+[sub_resource type="Resource" id="Resource_1gpbv"]
+script = ExtResource("3_kfv7r")
+perfect = 20.0
+great = 40.0
+good = 60.0
+ok = 80.0
+metadata/_custom_type_script = "uid://jkjt3q56s6as"
+
+[resource]
+script = ExtResource("1_50xy1")
+length = 180.0
+windows = SubResource("Resource_1gpbv")
+song_file = ExtResource("2_8i2gc")
+bpm = 171.0
+offset = 150.0
+db_modifier = -3.0
+metadata/_custom_type_script = "uid://cu6jdyq6ls3am"

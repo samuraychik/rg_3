@@ -1,0 +1,89 @@
+[gd_scene format=3 uid="uid://dk2w56ibv0473"]
+
+[ext_resource type="PackedScene" uid="uid://dfny8po27m1q2" path="res://entities/card_symbol/card_symbol.tscn" id="1_6tuqn"]
+[ext_resource type="Script" uid="uid://cmqc25ttrms2t" path="res://entities/card_symbol/instances/cowbell/card_symbol_cowbell.gd" id="2_mma0q"]
+[ext_resource type="Texture2D" uid="uid://bfc0k2jk3a0qo" path="res://assets/sprites/symbol_cowbell.png" id="2_obiik"]
+[ext_resource type="AudioStream" uid="uid://bl7wx4cy3vl6j" path="res://assets/sfx/cowbell_hit.wav" id="3_mma0q"]
+
+[sub_resource type="Animation" id="Animation_pvn64"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_obiik"]
+resource_name = "cue"
+length = 0.10000167
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03333334, 0.1),
+"transitions": PackedFloat32Array(1, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mma0q"]
+resource_name = "hit"
+length = 0.10000167
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
+"transitions": PackedFloat32Array(1, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"next_frame"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pvn64"]
+_data = {
+&"RESET": SubResource("Animation_pvn64"),
+&"cue": SubResource("Animation_obiik"),
+&"hit": SubResource("Animation_mma0q")
+}
+
+[node name="CardSymbolCowbell" unique_id=2069425400 instance=ExtResource("1_6tuqn")]
+script = ExtResource("2_mma0q")
+
+[node name="Sprite" parent="." index="0" unique_id=542445618]
+texture = ExtResource("2_obiik")
+hframes = 3
+
+[node name="HitPlayer" parent="." index="3" unique_id=6485545]
+stream = ExtResource("3_mma0q")
+
+[node name="CowbellAnimator" type="AnimationPlayer" parent="." index="4" unique_id=575674815]
+libraries/ = SubResource("AnimationLibrary_pvn64")

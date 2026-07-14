@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b50tswniyhrfh"
+path="res://.godot/imported/Glorious Morning - Waterflame.ogg-2cf8c00c6b81412d0155b97fddb06b0c.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Glorious Morning - Waterflame.ogg"
+dest_files=["res://.godot/imported/Glorious Morning - Waterflame.ogg-2cf8c00c6b81412d0155b97fddb06b0c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=76.0
+beat_count=0
+bar_beats=4

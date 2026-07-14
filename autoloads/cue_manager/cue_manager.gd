@@ -3,9 +3,7 @@ extends Node
 
 signal cue(cue: CueData)
 
-
-@onready var generic_player: AudioStreamPlayer = $GenericPlayer
-
+@onready var lever_player: AudioStreamPlayer = $LeverPlayer
 
 var cues: Array[CueData]
 var next_cue: CueData
@@ -30,14 +28,7 @@ func _physics_process(_delta: float) -> void:
 		return
 	
 	if RhythmPlayer.current_beat >= next_cue.beat:
-		play_cue()
+		cue.emit(next_cue)
+		if next_cue.symbol == Utils.CardSymbol.LEVER:
+			lever_player.play()
 		set_next_cue()
-
-
-func get_sfx_player() -> AudioStreamPlayer:
-	return generic_player
-
-
-func play_cue() -> void:
-	cue.emit(next_cue)
-	get_sfx_player().play()
