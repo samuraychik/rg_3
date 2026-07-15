@@ -82,8 +82,6 @@ func setup_cards() -> void:
 
 			continue
 
-		# this code sucks so much but it's a pain to optimize
-		# right now when i dont even got the game baseline finito
 		for pattern_beat in range(pattern_size):
 			var card_data = pattern_cards.pop_back()
 			if card_data:

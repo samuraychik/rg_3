@@ -7,6 +7,7 @@ enum HitRating {
 	GOOD,
 	GREAT,
 	PERFECT,
+	IGNORED,
 }
 
 

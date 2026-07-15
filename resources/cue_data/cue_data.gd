@@ -2,9 +2,11 @@ class_name CueData extends Resource
 
 
 @export var beat: float
-@export var symbol: Utils.CardSymbol
+@export var effect: Callable
+
+var used: bool = false
 
 
-func _init(_beat: float, _symbol: Utils.CardSymbol) -> void:
+func _init(_beat: float, _effect: Callable) -> void:
 	beat = _beat
-	symbol = _symbol
+	effect = _effect
