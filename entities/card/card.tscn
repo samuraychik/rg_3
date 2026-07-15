@@ -59,10 +59,6 @@ tracks/0/keys = {
 "values": [Vector2(1, 1), Vector2(1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_lxn7g"]
-resource_name = "hit"
-step = 0.016666668
-
 [sub_resource type="Animation" id="Animation_65s1i"]
 resource_name = "miss"
 length = 0.13333501
@@ -113,7 +109,6 @@ tracks/0/keys = {
 _data = {
 &"RESET": SubResource("Animation_k4q5u"),
 &"despawn": SubResource("Animation_4bbms"),
-&"hit": SubResource("Animation_lxn7g"),
 &"miss": SubResource("Animation_65s1i"),
 &"spawn": SubResource("Animation_iw0dl")
 }

@@ -1,18 +1,19 @@
 class_name Card extends Node2D
 
 
+signal symbol_hit(symbol: CardSymbol, rating: Utils.HitRating)
+
+
 @onready var main_animator: AnimationPlayer = $MainAnimator
 @onready var sprite_root: Node2D = $SpriteRoot
 
 
-var symbol: Utils.CardSymbol
 var symbol_node: CardSymbol
 
 
-func setup(card_data: CardData, cue_time: float, play_time: float, level_context: LevelContext) -> void:
-	symbol = card_data.symbol
+func setup(card_data: CardData, card_context: CardContext, level_context: LevelContext) -> void:
 	symbol_node = card_data.symbol_scene.instantiate()
-	symbol_node.setup(cue_time, play_time, level_context)
+	symbol_node.setup(card_context, level_context)
 	sprite_root.add_child(symbol_node)
 
 	symbol_node.symbol_hit.connect(on_symbol_hit)
@@ -31,8 +32,7 @@ func despawn() -> void:
 	symbol_node.despawn()
 
 
-func on_symbol_hit(_symbol: CardSymbol, rating: Utils.HitRating) -> void:
+func on_symbol_hit(symbol: CardSymbol, rating: Utils.HitRating) -> void:
+	symbol_hit.emit(symbol, rating)
 	if rating == Utils.HitRating.MISS:
 		main_animator.play("miss")
-	else:
-		main_animator.play("hit")

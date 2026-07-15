@@ -1,10 +1,12 @@
 class_name HitData extends Resource
 
 
-@export var beat: float = 0
-@export var hold_time: float = 0
+var beat: float
+var hold_time: float
+var effect: Callable
 
 
-func _init(_beat: float, _hold_time: float) -> void:
+func _init(_beat: float, _hold_time: float, _effect: Callable) -> void:
 	beat = _beat
 	hold_time = _hold_time
+	effect = _effect

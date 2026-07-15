@@ -1,8 +1,8 @@
 class_name CueData extends Resource
 
 
-@export var beat: float
-@export var effect: Callable
+var beat: float
+var effect: Callable
 
 var used: bool = false
 

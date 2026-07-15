@@ -6,8 +6,5 @@
 [resource]
 resource_name = "Apple"
 script = ExtResource("1_v5nrp")
-symbol = 1
 symbol_scene = ExtResource("2_8dijf")
-cues = Array[float]([0.0])
-hits = Array[float]([0.0])
 metadata/_custom_type_script = "uid://bvealhk6b56a8"
