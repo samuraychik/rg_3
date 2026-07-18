@@ -82,7 +82,7 @@ script = ExtResource("2_ic8dc")
 texture = ExtResource("2_yj14a")
 hframes = 5
 
-[node name="HitPlayer" parent="." index="3" unique_id=6485545]
+[node name="HitSfx" parent="." index="3" unique_id=6485545]
 stream = ExtResource("3_ic8dc")
 
 [node name="CloverAnimator" type="AnimationPlayer" parent="." index="4" unique_id=1987415686]

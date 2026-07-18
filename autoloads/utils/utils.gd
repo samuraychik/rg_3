@@ -7,6 +7,7 @@ enum HitRating {
 	GOOD,
 	GREAT,
 	PERFECT,
+	IGNORED,
 }
 
 
@@ -25,6 +26,10 @@ enum CardSymbol {
 	BOMB,
 	THEO,
 	HORSESHOE,
+	SUIT_SPADES,
+	SUIT_CLUBS,
+	SUIT_HEARTS,
+	SUIT_DIAMONDS,
 	LEVER,
 }
 

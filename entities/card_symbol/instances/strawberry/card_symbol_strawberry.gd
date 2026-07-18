@@ -4,15 +4,18 @@ class_name CardSymbolStrawberry extends CardSymbol
 @onready var strawberry_animator: AnimationPlayer = $StrawberryAnimator
 
 
-func next_cue() -> void:
+func on_spawn() -> void:
+	add_cue(CueData.new(0.5, cue))
+	add_hit(HitData.new(0.5, 0, hit))
+
+
+func cue() -> void:
 	strawberry_animator.stop(true)
 	strawberry_animator.play("cue")
-	cue_player.play()
-	super()
+	cue_sfx.play()
 
 
-func next_hit() -> void:
+func hit() -> void:
 	strawberry_animator.stop(true)
 	strawberry_animator.play("hit")
-	hit_player.play()
-	super()
+	hit_sfx.play()

@@ -1,10 +1,12 @@
 class_name HitData extends Resource
 
 
-@export var beat: float
-@export var symbol: Utils.CardSymbol
+var beat: float
+var hold_time: float
+var effect: Callable
 
 
-func _init(_beat: float, _symbol: Utils.CardSymbol) -> void:
+func _init(_beat: float, _hold_time: float, _effect: Callable) -> void:
 	beat = _beat
-	symbol = _symbol
+	hold_time = _hold_time
+	effect = _effect

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cwpowqbut74bf"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_4pm65"]
+[ext_resource type="PackedScene" uid="uid://h1qn0artnwe1" path="res://entities/card_symbol/instances/suit_hearts/card_symbol_hearts.tscn" id="2_j1fch"]
+
+[resource]
+resource_name = "SuitHearts"
+script = ExtResource("1_4pm65")
+symbol = 16
+symbol_scene = ExtResource("2_j1fch")
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://b4oftfrpngjhd"]
+
+[ext_resource type="PackedScene" uid="uid://dfny8po27m1q2" path="res://entities/card_symbol/card_symbol.tscn" id="1_fkeqo"]
+[ext_resource type="Script" uid="uid://ds1x502w3c248" path="res://entities/card_symbol/instances/suit_diamonds/card_symbol_diamonds.gd" id="2_o0dh2"]
+[ext_resource type="AudioStream" uid="uid://h3hd5dpl2xda" path="res://assets/sfx/clover_hit.wav" id="3_fioik"]
+[ext_resource type="Texture2D" uid="uid://bqdu8oqmbuche" path="res://assets/sprites/suit_diamonds.png" id="3_g1lbp"]
+[ext_resource type="AudioStream" uid="uid://qnddl764rbl1" path="res://assets/sfx/suit_diamond_hit.wav" id="4_ec7jl"]
+
+[sub_resource type="Animation" id="Animation_n07do"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_n1lbr"]
+resource_name = "cue"
+length = 0.10000167
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
+"transitions": PackedFloat32Array(1, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7w8wm"]
+resource_name = "hit"
+length = 0.10000167
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
+"transitions": PackedFloat32Array(1, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ifrgm"]
+resource_name = "hit_final"
+length = 0.10000167
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
+"transitions": PackedFloat32Array(1, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sto2h"]
+_data = {
+&"RESET": SubResource("Animation_n07do"),
+&"cue": SubResource("Animation_n1lbr"),
+&"hit": SubResource("Animation_7w8wm"),
+&"hit_final": SubResource("Animation_ifrgm")
+}
+
+[node name="CardSymbolDiamonds" unique_id=2069425400 instance=ExtResource("1_fkeqo")]
+script = ExtResource("2_o0dh2")
+
+[node name="Sprite" parent="." index="0" unique_id=542445618]
+texture = ExtResource("3_g1lbp")
+hframes = 2
+
+[node name="HitSfx" parent="." index="3" unique_id=6485545]
+stream = ExtResource("3_fioik")
+volume_db = -6.0
+
+[node name="HitFinalSfx" type="AudioStreamPlayer" parent="." index="4" unique_id=1544203710]
+stream = ExtResource("4_ec7jl")
+volume_db = -2.0
+
+[node name="DiamondsAnimator" type="AnimationPlayer" parent="." index="5" unique_id=770310684]
+libraries/ = SubResource("AnimationLibrary_sto2h")

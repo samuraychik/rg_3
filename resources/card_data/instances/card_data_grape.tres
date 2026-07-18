@@ -8,6 +8,4 @@ resource_name = "Grape"
 script = ExtResource("1_v3e4i")
 symbol = 10
 symbol_scene = ExtResource("2_n61x8")
-cues = Array[float]([0.0, 1.5])
-hits = Array[float]([0.0, 1.5])
 metadata/_custom_type_script = "uid://bvealhk6b56a8"

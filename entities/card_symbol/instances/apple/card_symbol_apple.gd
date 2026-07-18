@@ -4,15 +4,18 @@ class_name CardSymbolApple extends CardSymbol
 @onready var apple_animator: AnimationPlayer = $AppleAnimator
 
 
-func next_cue() -> void:
+func on_spawn() -> void:
+	add_cue(CueData.new(0, cue))
+	add_hit(HitData.new(0, 0, hit))
+
+
+func cue() -> void:
 	apple_animator.stop(true)
 	apple_animator.play("cue")
-	cue_player.play()
-	super()
+	cue_sfx.play()
 
 
-func next_hit() -> void:
+func hit() -> void:
 	apple_animator.stop(true)
 	apple_animator.play("hit")
-	hit_player.play()
-	super()
+	hit_sfx.play()

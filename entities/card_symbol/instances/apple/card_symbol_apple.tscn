@@ -33,7 +33,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_5a5ws"]
 resource_name = "cue_1"
-length = 0.13333501
+length = 0.10000167
 step = 0.016666668
 tracks/0/type = "value"
 tracks/0/imported = false

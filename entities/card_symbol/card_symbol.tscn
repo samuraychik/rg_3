@@ -69,10 +69,10 @@ script = ExtResource("1_4hbfk")
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_66ufj")
 
-[node name="CuePlayer" type="AudioStreamPlayer" parent="." unique_id=1499777976]
+[node name="CueSfx" type="AudioStreamPlayer" parent="." unique_id=1499777976]
 unique_name_in_owner = true
 stream = ExtResource("2_jgu2p")
 
-[node name="HitPlayer" type="AudioStreamPlayer" parent="." unique_id=6485545]
+[node name="HitSfx" type="AudioStreamPlayer" parent="." unique_id=6485545]
 unique_name_in_owner = true
 stream = ExtResource("3_1nsn5")

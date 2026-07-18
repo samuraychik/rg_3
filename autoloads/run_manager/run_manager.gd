@@ -9,7 +9,7 @@ var deck: DeckData
 
 
 func start_run(starting_deck: DeckData) -> void:
-	deck = starting_deck.duplicate(true)
+	deck = starting_deck.duplicate_deep()
 	start_level(preload("uid://dy4ue833d6q3y"))
 	
 

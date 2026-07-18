@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cr8pffgsjp3hm"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_rwvcn"]
+[ext_resource type="PackedScene" uid="uid://co6cu2phyf82q" path="res://entities/card_symbol/instances/suit_spades/card_symbol_spades.tscn" id="2_dkgld"]
+
+[resource]
+resource_name = "SuitSpades"
+script = ExtResource("1_rwvcn")
+symbol = 14
+symbol_scene = ExtResource("2_dkgld")
+metadata/_custom_type_script = "uid://bvealhk6b56a8"
