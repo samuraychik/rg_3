@@ -54,7 +54,7 @@ func process_hit(hit: HitData) -> void:
 	var hit_delta := (RhythmPlayer.song_position - hit_time) * 1000
 
 	if hit_delta > level_context.windows.ok or Input.is_action_just_pressed("hit"):
-		var rating := get_rating(hit_delta)
+		var rating := level_context.get_rating(hit_delta)
 		symbol_hit.emit(self, rating)
 
 		if rating == Utils.HitRating.IGNORED:
@@ -69,25 +69,6 @@ func process_hit(hit: HitData) -> void:
 
 func process_hold(_hold: HitData) -> void:
 	pass
-
-
-func get_rating(delta: float) -> Utils.HitRating:
-	# print("%s: %s" % [card_context.slot_id, delta])
-	if delta > level_context.windows.ok:
-		return Utils.HitRating.MISS
-	
-	if delta < -level_context.windows.ok:
-		return Utils.HitRating.IGNORED
-	
-	var abs_delta = absf(delta)
-	if abs_delta <= level_context.windows.perfect:
-		return Utils.HitRating.PERFECT
-	elif abs_delta <= level_context.windows.great:
-		return Utils.HitRating.GREAT
-	elif abs_delta <= level_context.windows.good:
-		return Utils.HitRating.GOOD
-	else:
-		return Utils.HitRating.OK
 
 
 func setup(_slot_id: int, _cue_base: int, _hit_base: int, _level_context: LevelContext) -> void:

@@ -1,11 +1,16 @@
 [gd_resource type="Resource" script_class="DeckData" format=3 uid="uid://do8p2y1x61486"]
 
 [ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_wm78f"]
-[ext_resource type="Resource" uid="uid://7xuagbuxfb46" path="res://resources/card_data/instances/card_data_theo.tres" id="2_uw3m5"]
+[ext_resource type="Resource" uid="uid://bksf6r4cxrw0l" path="res://resources/card_data/instances/card_data_apple.tres" id="2_gjwon"]
+[ext_resource type="Resource" uid="uid://b72e0g7ywd27p" path="res://resources/card_data/instances/card_data_cherry.tres" id="3_4f214"]
 [ext_resource type="Script" uid="uid://3jywwbpd27bh" path="res://resources/deck_data/deck_data.gd" id="4_1ppjo"]
+[ext_resource type="Resource" uid="uid://cr8pffgsjp3hm" path="res://resources/card_data/instances/card_data_suit_spades.tres" id="4_cmsv4"]
+[ext_resource type="Resource" uid="uid://cwpowqbut74bf" path="res://resources/card_data/instances/card_data_suit_hearts.tres" id="5_8qj3k"]
+[ext_resource type="Resource" uid="uid://b6aokbwesbbe4" path="res://resources/card_data/instances/card_data_strawberry.tres" id="6_b0q7p"]
+[ext_resource type="Resource" uid="uid://cmif762wtbfnx" path="res://resources/card_data/instances/card_data_horseshoe.tres" id="7_2rfwq"]
 
 [resource]
 resource_name = "AppleDeck"
 script = ExtResource("4_1ppjo")
-cards = Array[ExtResource("1_wm78f")]([ExtResource("2_uw3m5")])
+cards = Array[ExtResource("1_wm78f")]([ExtResource("2_gjwon"), ExtResource("2_gjwon"), ExtResource("3_4f214"), ExtResource("4_cmsv4"), ExtResource("5_8qj3k"), ExtResource("6_b0q7p"), ExtResource("7_2rfwq"), ExtResource("2_gjwon"), ExtResource("3_4f214")])
 metadata/_custom_type_script = "uid://3jywwbpd27bh"
