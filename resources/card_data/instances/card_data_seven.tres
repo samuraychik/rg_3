@@ -8,6 +8,4 @@ resource_name = "Seven"
 script = ExtResource("1_bxxla")
 symbol = 9
 symbol_scene = ExtResource("2_5xsvk")
-cues = Array[float]([0.0])
-hits = Array[float]([0.0])
 metadata/_custom_type_script = "uid://bvealhk6b56a8"

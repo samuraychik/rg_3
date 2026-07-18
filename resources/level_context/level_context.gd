@@ -1,6 +1,11 @@
 class_name LevelContext extends Resource
 
 
+signal full_pattern
+signal card_drawn
+signal jackpot
+
+
 var windows: WindowsData
 
 var deck: Array[CardData]

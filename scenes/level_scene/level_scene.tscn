@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://vm334jqbvcui"]
 
 [ext_resource type="Script" uid="uid://bu7c1py15uvos" path="res://scenes/level_scene/level_scene.gd" id="1_odx7e"]
+[ext_resource type="PackedScene" uid="uid://bdvybsrf48rg7" path="res://entities/card/card.tscn" id="2_10ca3"]
 [ext_resource type="FontFile" uid="uid://e72x4g8c1eqo" path="res://assets/fonts/ari-w9500-display.ttf" id="4_10ca3"]
 [ext_resource type="PackedScene" uid="uid://bnb5txyim3apj" path="res://entities/slot/slot.tscn" id="4_kxscv"]
 
@@ -30,20 +31,10 @@ outline_color = Color(0, 0, 0, 1)
 
 [node name="LevelScene" type="Node2D" unique_id=229895336]
 script = ExtResource("1_odx7e")
+card_scene = ExtResource("2_10ca3")
+slot_scene = ExtResource("4_kxscv")
 
 [node name="SlotsHolder" type="Node2D" parent="." unique_id=1770622425]
-
-[node name="Slot0" parent="SlotsHolder" unique_id=325813856 instance=ExtResource("4_kxscv")]
-unique_name_in_owner = true
-position = Vector2(112, 88)
-
-[node name="Slot1" parent="SlotsHolder" unique_id=838034460 instance=ExtResource("4_kxscv")]
-unique_name_in_owner = true
-position = Vector2(160, 88)
-
-[node name="Slot2" parent="SlotsHolder" unique_id=1686314600 instance=ExtResource("4_kxscv")]
-unique_name_in_owner = true
-position = Vector2(208, 88)
 
 [node name="ComboLabel" type="Label" parent="." unique_id=559178435]
 anchors_preset = 8

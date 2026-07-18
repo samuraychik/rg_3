@@ -5,20 +5,20 @@ class_name CardSymbolCherry extends CardSymbol
 
 
 func on_spawn() -> void:
-	add_cue(CueData.new(0, on_cue))
-	add_hit(HitData.new(0, 0, on_hit))
+	add_cue(CueData.new(0, cue))
+	add_hit(HitData.new(0, 0, hit))
 
-	add_cue(CueData.new(0.5, on_cue))
-	add_hit(HitData.new(0.5, 0, on_hit))
+	add_cue(CueData.new(0.5, cue))
+	add_hit(HitData.new(0.5, 0, hit))
 
 
-func on_cue() -> void:
+func cue() -> void:
 	cherry_animator.stop(true)
 	cherry_animator.play("cue")
-	cue_player.play()
+	cue_sfx.play()
 
 
-func on_hit() -> void:
+func hit() -> void:
 	cherry_animator.stop(true)
 	cherry_animator.play("hit")
-	hit_player.play()
+	hit_sfx.play()

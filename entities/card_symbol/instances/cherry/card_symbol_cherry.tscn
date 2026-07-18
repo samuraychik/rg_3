@@ -82,7 +82,7 @@ script = ExtResource("2_5v48i")
 texture = ExtResource("3_4s4kw")
 hframes = 3
 
-[node name="HitPlayer" parent="." index="3" unique_id=6485545]
+[node name="HitSfx" parent="." index="3" unique_id=6485545]
 stream = ExtResource("4_730hj")
 
 [node name="CherryAnimator" type="AnimationPlayer" parent="." index="4" unique_id=1682728002]

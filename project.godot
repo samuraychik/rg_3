@@ -22,8 +22,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 RhythmPlayer="*res://autoloads/rhythm_player/rhythm_player.tscn"
-HitManager="*res://autoloads/hit_manager/hit_manager.tscn"
-CueManager="*res://autoloads/cue_manager/cue_manager.tscn"
 Utils="*res://autoloads/utils/utils.gd"
 RunManager="*uid://bjlmmcv853202"
 
@@ -31,8 +29,13 @@ RunManager="*uid://bjlmmcv853202"
 
 window/size/viewport_width=320
 window/size/viewport_height=180
-window/size/mode=3
 window/stretch/mode="viewport"
+
+[file_customization]
+
+folder_colors={
+"res://entities/": "yellow"
+}
 
 [input]
 

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://cy31oeffux6jw"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_c7xvr"]
+[ext_resource type="PackedScene" uid="uid://b4oftfrpngjhd" path="res://entities/card_symbol/instances/suit_diamonds/card_symbol_diamonds.tscn" id="2_asc2i"]
+
+[resource]
+resource_name = "SuitDiamonds"
+script = ExtResource("1_c7xvr")
+symbol = 17
+symbol_scene = ExtResource("2_asc2i")
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

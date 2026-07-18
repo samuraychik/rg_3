@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CardData" format=3 uid="uid://dg2wny4typx8t"]
+
+[ext_resource type="Script" uid="uid://bvealhk6b56a8" path="res://resources/card_data/card_data.gd" id="1_kgjdn"]
+[ext_resource type="PackedScene" uid="uid://bm06eypaah5q" path="res://entities/card_symbol/instances/suit_clubs/card_symbol_clubs.tscn" id="2_hnf3k"]
+
+[resource]
+resource_name = "SuitClubs"
+script = ExtResource("1_kgjdn")
+symbol = 15
+symbol_scene = ExtResource("2_hnf3k")
+metadata/_custom_type_script = "uid://bvealhk6b56a8"

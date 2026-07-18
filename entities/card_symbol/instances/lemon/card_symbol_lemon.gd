@@ -4,15 +4,18 @@ class_name CardSymbolLemon extends CardSymbol
 @onready var lemon_animator: AnimationPlayer = $LemonAnimator
 
 
-func next_cue() -> void:
+func on_spawn() -> void:
+	add_cue(CueData.new(0.25, cue))
+	add_hit(HitData.new(0.25, 0, hit))
+
+
+func cue() -> void:
 	lemon_animator.stop(true)
 	lemon_animator.play("cue")
-	cue_player.play()
-	super()
+	cue_sfx.play()
 
 
-func next_hit() -> void:
+func hit() -> void:
 	lemon_animator.stop(true)
 	lemon_animator.play("hit")
-	hit_player.play()
-	super()
+	hit_sfx.play()

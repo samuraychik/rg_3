@@ -5,17 +5,17 @@ class_name CardSymbolApple extends CardSymbol
 
 
 func on_spawn() -> void:
-	add_cue(CueData.new(0, on_cue))
-	add_hit(HitData.new(0, 0, on_hit))
+	add_cue(CueData.new(0, cue))
+	add_hit(HitData.new(0, 0, hit))
 
 
-func on_cue() -> void:
+func cue() -> void:
 	apple_animator.stop(true)
 	apple_animator.play("cue")
-	cue_player.play()
+	cue_sfx.play()
 
 
-func on_hit() -> void:
+func hit() -> void:
 	apple_animator.stop(true)
 	apple_animator.play("hit")
-	hit_player.play()
+	hit_sfx.play()
