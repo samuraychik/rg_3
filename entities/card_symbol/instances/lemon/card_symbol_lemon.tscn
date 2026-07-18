@@ -92,7 +92,7 @@ script = ExtResource("2_cowe3")
 texture = ExtResource("2_pyc4j")
 hframes = 2
 
-[node name="HitPlayer" parent="." index="3" unique_id=6485545]
+[node name="HitSfx" parent="." index="3" unique_id=6485545]
 stream = ExtResource("3_cowe3")
 
 [node name="LemonAnimator" type="AnimationPlayer" parent="." index="4" unique_id=865645028]

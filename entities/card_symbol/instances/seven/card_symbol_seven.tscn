@@ -110,7 +110,7 @@ script = ExtResource("2_5yry0")
 texture = ExtResource("3_rcfm6")
 hframes = 2
 
-[node name="HitPlayer" parent="." index="3" unique_id=6485545]
+[node name="HitSfx" parent="." index="3" unique_id=6485545]
 stream = ExtResource("4_05fih")
 
 [node name="SevenAnimator" type="AnimationPlayer" parent="." index="4" unique_id=600073160]

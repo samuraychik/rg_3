@@ -82,7 +82,7 @@ script = ExtResource("2_mma0q")
 texture = ExtResource("2_obiik")
 hframes = 3
 
-[node name="HitPlayer" parent="." index="3" unique_id=6485545]
+[node name="HitSfx" parent="." index="3" unique_id=6485545]
 stream = ExtResource("3_mma0q")
 
 [node name="CowbellAnimator" type="AnimationPlayer" parent="." index="4" unique_id=575674815]

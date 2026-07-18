@@ -92,7 +92,7 @@ script = ExtResource("2_p7hev")
 texture = ExtResource("2_hdcti")
 hframes = 2
 
-[node name="HitPlayer" parent="." index="3" unique_id=6485545]
+[node name="HitSfx" parent="." index="3" unique_id=6485545]
 stream = ExtResource("3_p7hev")
 
 [node name="TomatoAnimator" type="AnimationPlayer" parent="." index="4" unique_id=881505887]

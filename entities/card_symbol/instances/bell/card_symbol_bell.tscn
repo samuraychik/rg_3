@@ -82,7 +82,7 @@ script = ExtResource("2_ben72")
 texture = ExtResource("3_up55o")
 hframes = 3
 
-[node name="HitPlayer" parent="." index="3" unique_id=6485545]
+[node name="HitSfx" parent="." index="3" unique_id=6485545]
 stream = ExtResource("3_mgbux")
 
 [node name="BellAnimator" type="AnimationPlayer" parent="." index="4" unique_id=627349145]

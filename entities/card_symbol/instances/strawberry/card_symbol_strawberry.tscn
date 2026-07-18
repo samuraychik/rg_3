@@ -92,7 +92,7 @@ script = ExtResource("2_usfvf")
 texture = ExtResource("2_nb0h8")
 hframes = 2
 
-[node name="HitPlayer" parent="." index="3" unique_id=6485545]
+[node name="HitSfx" parent="." index="3" unique_id=6485545]
 stream = ExtResource("3_usfvf")
 
 [node name="StrawberryAnimator" type="AnimationPlayer" parent="." index="4" unique_id=945634113]
