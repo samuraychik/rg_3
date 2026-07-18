@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bfnykqd720c3u" path="res://assets/sprites/machine_03.png" id="4_odx7e"]
 [ext_resource type="PackedScene" uid="uid://mfo8m6supc6r" path="res://entities/lever/lever.tscn" id="5_dq1ac"]
 [ext_resource type="Script" uid="uid://c0gml08tvyi3w" path="res://entities/level_bg/level_bg.gd" id="5_kxscv"]
+[ext_resource type="PackedScene" uid="uid://bfyqq22kflq7u" path="res://entities/ui/jumpy_label/jumpy_label.tscn" id="8_nyfti"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kxscv"]
 shader = ExtResource("4_i3xij")
@@ -17,18 +18,6 @@ shader_parameter/speed = 0.10000000149012
 shader_parameter/direction = 1
 shader_parameter/stripe_colors = PackedVector4Array(1, 0.8, 0.3, 0, 1, 0.6, 0.2, 0)
 shader_parameter/color_count = 2
-
-[sub_resource type="LabelSettings" id="LabelSettings_odx7e"]
-font = ExtResource("4_10ca3")
-font_size = 14
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_dq1ac"]
-font = ExtResource("4_10ca3")
-font_size = 10
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_i3xij"]
 font = ExtResource("4_10ca3")
@@ -64,41 +53,16 @@ position = Vector2(261, 122)
 
 [node name="SlotsHolder" type="Node2D" parent="." unique_id=1770622425]
 
-[node name="ComboLabel" type="Label" parent="." unique_id=559178435]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 152.0
-offset_top = 8.0
-offset_right = 168.0
-offset_bottom = 24.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ComboLabel" parent="." unique_id=26653807 instance=ExtResource("8_nyfti")]
+offset_right = 6.0
+grow_horizontal = 0
 text = "0"
-label_settings = SubResource("LabelSettings_odx7e")
-horizontal_alignment = 1
-vertical_alignment = 1
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
 
-[node name="RatingLabel" type="Label" parent="." unique_id=2053240978]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 136.0
-offset_top = 24.0
-offset_right = 184.0
-offset_bottom = 40.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Great!"
-label_settings = SubResource("LabelSettings_dq1ac")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="RatingLabel" parent="." unique_id=102809008 instance=ExtResource("8_nyfti")]
+text = "GOOD"
+metadata/_edit_use_anchors_ = true
 
 [node name="ScoreTLabel" type="Label" parent="." unique_id=1478602172]
 visible = false
@@ -135,3 +99,5 @@ text = "100"
 label_settings = SubResource("LabelSettings_kxscv")
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="LevelAnimator" type="AnimationPlayer" parent="." unique_id=395327603]

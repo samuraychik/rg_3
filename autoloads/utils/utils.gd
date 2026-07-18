@@ -39,3 +39,19 @@ enum Curse {
 	DIRTY,
 	OFFBEAT,
 }
+
+
+func get_rating_string(rating: HitRating) -> String:
+	match rating:
+		HitRating.MISS:
+			return "MISS"
+		HitRating.OK:
+			return "OK"
+		HitRating.GOOD:
+			return "GOOD"
+		HitRating.GREAT:
+			return "GREAT"
+		HitRating.PERFECT:
+			return "PERFECT"
+		_:
+			return ""

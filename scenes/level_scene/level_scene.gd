@@ -4,9 +4,8 @@ class_name LevelScene extends Node2D
 @onready var lever: Lever = $Lever
 
 @onready var slots_holder: Node2D = $SlotsHolder
-@onready var combo_label: Label = $ComboLabel
-@onready var rating_label: Label = $RatingLabel
-@onready var score_label: Label = $ScoreLabel
+@onready var combo_label: JumpyLabel = $ComboLabel
+@onready var rating_label: JumpyLabel = $RatingLabel
 
 
 @export var card_scene: PackedScene
@@ -19,14 +18,10 @@ var level_context: LevelContext
 var current_beat: int
 var is_cue_phase: bool
 
-var score: int = 0:
-	set(value):
-		score = value
-		score_label.text = str(score)
 var combo: int = 0:
 	set(value):
 		combo = value
-		combo_label.text = str(combo)
+		combo_label.set_label(str(combo))
 
 
 func _physics_process(_delta: float) -> void:
@@ -93,12 +88,24 @@ func discard_cards() -> void:
 		slots[slot_id].discard()
 
 
-func on_symbol_hit(symbol: CardSymbol, rating: Utils.HitRating) -> void:
+func on_symbol_hit(_symbol: CardSymbol, rating: Utils.HitRating) -> void:
 	if rating == Utils.HitRating.IGNORED:
 		return
+
+	process_rating(rating)
 
 
 func on_lever_hit(rating: Utils.HitRating) -> void:
 	if rating == Utils.HitRating.IGNORED:
 		return
+
+	process_rating(rating)
 	discard_cards()
+
+
+func process_rating(rating: Utils.HitRating) -> void:
+	rating_label.set_label(Utils.get_rating_string(rating))
+	if rating == Utils.HitRating.MISS:
+		combo = 0
+	else:
+		combo += 1
