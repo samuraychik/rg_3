@@ -54,13 +54,23 @@ position = Vector2(261, 122)
 [node name="SlotsHolder" type="Node2D" parent="." unique_id=1770622425]
 
 [node name="ComboLabel" parent="." unique_id=26653807 instance=ExtResource("8_nyfti")]
-offset_right = 6.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 196.0
+offset_top = 20.0
+offset_right = 202.0
+offset_bottom = 29.0
 grow_horizontal = 0
 text = "0"
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="RatingLabel" parent="." unique_id=102809008 instance=ExtResource("8_nyfti")]
+offset_left = 117.0
+offset_top = 20.0
+offset_right = 173.0
+offset_bottom = 29.0
 text = "GOOD"
 metadata/_edit_use_anchors_ = true
 

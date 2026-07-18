@@ -104,8 +104,25 @@ func on_lever_hit(rating: Utils.HitRating) -> void:
 
 
 func process_rating(rating: Utils.HitRating) -> void:
+	rating_label.self_modulate = get_rating_color(rating)
 	rating_label.set_label(Utils.get_rating_string(rating))
 	if rating == Utils.HitRating.MISS:
 		combo = 0
 	else:
 		combo += 1
+
+
+func get_rating_color(rating: Utils.HitRating) -> Color:
+	match rating:
+		Utils.HitRating.PERFECT:
+			return Color.from_rgba8(255, 213, 65)
+		Utils.HitRating.GREAT:
+			return Color.from_rgba8(244, 210, 156)
+		Utils.HitRating.GOOD:
+			return Color.from_rgba8(219, 164, 99)
+		Utils.HitRating.OK:
+			return Color.from_rgba8(187, 117, 71)
+		Utils.HitRating.MISS:
+			return Color.from_rgba8(180, 32, 42)
+		_:
+			return Color.WHITE
