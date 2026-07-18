@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c57nfet4k0ddi" path="res://entities/card/card.gd" id="1_cejef"]
 [ext_resource type="Texture2D" uid="uid://b7m1gb4thab5i" path="res://assets/sprites/card_background.png" id="2_lxn7g"]
+[ext_resource type="AudioStream" uid="uid://i5tny6cw8hrb" path="res://assets/sfx/miss.wav" id="3_4bbms"]
 
 [sub_resource type="Animation" id="Animation_k4q5u"]
 length = 0.001
@@ -44,7 +45,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_4bbms"]
 resource_name = "despawn"
-length = 0.033333335
+length = 0.06666834
 step = 0.016666668
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -57,6 +58,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 0.5),
 "update": 0,
 "values": [Vector2(1, 1), Vector2(1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_lxn7g"]
@@ -172,3 +187,7 @@ z_index = 10
 position = Vector2(-9.536743e-07, 0)
 scale = Vector2(0.16666667, 0.1875)
 texture = SubResource("NoiseTexture2D_65s1i")
+
+[node name="MissSfx" type="AudioStreamPlayer" parent="." unique_id=475317386]
+stream = ExtResource("3_4bbms")
+volume_db = -4.0

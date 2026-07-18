@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://mfo8m6supc6r"]
+
+[ext_resource type="Script" uid="uid://krw1vii6i1ql" path="res://entities/lever/lever.gd" id="1_284lf"]
+[ext_resource type="Texture2D" uid="uid://bu3hm8den5l1h" path="res://assets/sprites/lever.png" id="1_ym4b2"]
+[ext_resource type="AudioStream" uid="uid://c0w6bwoqv7bo6" path="res://assets/sfx/generic_cue.wav" id="2_284lf"]
+[ext_resource type="AudioStream" uid="uid://d35k0yryyv024" path="res://assets/sfx/lever_hit.wav" id="3_gu5ug"]
+[ext_resource type="AudioStream" uid="uid://i5tny6cw8hrb" path="res://assets/sfx/miss.wav" id="5_gu5ug"]
+
+[sub_resource type="Animation" id="Animation_gu5ug"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vbqhp"]
+resource_name = "cue"
+length = 0.10000167
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
+"transitions": PackedFloat32Array(1, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tsbl4"]
+resource_name = "hit"
+length = 0.26666835
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.23333333, 0.26666668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 1, 0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.033333335, 0.06666667, 0.23333333),
+"transitions": PackedFloat32Array(1, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nf1q6"]
+resource_name = "miss"
+length = 0.13333501
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.033333335, 0.10000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
+"transitions": PackedFloat32Array(1, 0.5, 2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_828c2"]
+_data = {
+&"RESET": SubResource("Animation_gu5ug"),
+&"cue": SubResource("Animation_vbqhp"),
+&"hit": SubResource("Animation_tsbl4"),
+&"miss": SubResource("Animation_nf1q6")
+}
+
+[node name="Lever" type="Node2D" unique_id=279808550]
+script = ExtResource("1_284lf")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1533828473]
+z_index = 10
+texture = ExtResource("1_ym4b2")
+hframes = 3
+
+[node name="CueSfx" type="AudioStreamPlayer" parent="." unique_id=481851668]
+stream = ExtResource("2_284lf")
+
+[node name="HitSfx" type="AudioStreamPlayer" parent="." unique_id=1542156025]
+stream = ExtResource("3_gu5ug")
+
+[node name="MissSfx" type="AudioStreamPlayer" parent="." unique_id=349761174]
+stream = ExtResource("5_gu5ug")
+volume_db = -4.0
+
+[node name="Animator" type="AnimationPlayer" parent="." unique_id=1633069860]
+libraries/ = SubResource("AnimationLibrary_828c2")

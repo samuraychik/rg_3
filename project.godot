@@ -34,7 +34,11 @@ window/stretch/mode="viewport"
 [file_customization]
 
 folder_colors={
-"res://entities/": "yellow"
+"res://assets/": "green",
+"res://autoloads/": "blue",
+"res://entities/": "yellow",
+"res://resources/": "pink",
+"res://scenes/": "orange"
 }
 
 [input]

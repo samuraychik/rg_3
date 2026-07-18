@@ -1,9 +1,22 @@
-[gd_scene format=3 uid="uid://vm334jqbvcui"]
+[gd_scene format=4 uid="uid://vm334jqbvcui"]
 
 [ext_resource type="Script" uid="uid://bu7c1py15uvos" path="res://scenes/level_scene/level_scene.gd" id="1_odx7e"]
 [ext_resource type="PackedScene" uid="uid://bdvybsrf48rg7" path="res://entities/card/card.tscn" id="2_10ca3"]
 [ext_resource type="FontFile" uid="uid://e72x4g8c1eqo" path="res://assets/fonts/ari-w9500-display.ttf" id="4_10ca3"]
+[ext_resource type="Shader" uid="uid://tmkgf5wpwwvh" path="res://shaders/chromatic_spin/chromatic_spin.gdshader" id="4_i3xij"]
 [ext_resource type="PackedScene" uid="uid://bnb5txyim3apj" path="res://entities/slot/slot.tscn" id="4_kxscv"]
+[ext_resource type="Texture2D" uid="uid://bfnykqd720c3u" path="res://assets/sprites/machine_03.png" id="4_odx7e"]
+[ext_resource type="PackedScene" uid="uid://mfo8m6supc6r" path="res://entities/lever/lever.tscn" id="5_dq1ac"]
+[ext_resource type="Script" uid="uid://c0gml08tvyi3w" path="res://entities/level_bg/level_bg.gd" id="5_kxscv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kxscv"]
+shader = ExtResource("4_i3xij")
+shader_parameter/center = Vector2(0.5, 0.5)
+shader_parameter/stripes = 16
+shader_parameter/speed = 0.10000000149012
+shader_parameter/direction = 1
+shader_parameter/stripe_colors = PackedVector4Array(1, 0.8, 0.3, 0, 1, 0.6, 0.2, 0)
+shader_parameter/color_count = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_odx7e"]
 font = ExtResource("4_10ca3")
@@ -34,9 +47,25 @@ script = ExtResource("1_odx7e")
 card_scene = ExtResource("2_10ca3")
 slot_scene = ExtResource("4_kxscv")
 
+[node name="LevelBg" type="ColorRect" parent="." unique_id=1248419599]
+z_index = -100
+material = SubResource("ShaderMaterial_kxscv")
+offset_right = 320.0
+offset_bottom = 180.0
+script = ExtResource("5_kxscv")
+metadata/_edit_use_anchors_ = true
+
+[node name="MachineSprite" type="Sprite2D" parent="." unique_id=1104835407]
+position = Vector2(160, 94)
+texture = ExtResource("4_odx7e")
+
+[node name="Lever" parent="." unique_id=279808550 instance=ExtResource("5_dq1ac")]
+position = Vector2(261, 122)
+
 [node name="SlotsHolder" type="Node2D" parent="." unique_id=1770622425]
 
 [node name="ComboLabel" type="Label" parent="." unique_id=559178435]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -54,6 +83,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RatingLabel" type="Label" parent="." unique_id=2053240978]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -71,6 +101,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ScoreTLabel" type="Label" parent="." unique_id=1478602172]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -88,6 +119,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="ScoreLabel" type="Label" parent="." unique_id=322089157]
+visible = false
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
