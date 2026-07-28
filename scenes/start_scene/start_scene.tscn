@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://duudfofpgv5ik"]
 
 [ext_resource type="Script" uid="uid://c6knk7p2k0yd5" path="res://scenes/start_scene/start_scene.gd" id="1_60ej6"]
-[ext_resource type="FontFile" uid="uid://nb4j2rqm77j" path="res://assets/fonts/NaNHoloGigawide-Ultra.ttf" id="1_qtxws"]
+[ext_resource type="FontFile" uid="uid://e72x4g8c1eqo" path="res://assets/fonts/ari-w9500-display.ttf" id="2_60ej6"]
+[ext_resource type="Texture2D" uid="uid://cgiqudfy4ctdh" path="res://assets/sprites/symbol_apple.png" id="3_rtdsu"]
+[ext_resource type="Texture2D" uid="uid://dqx4j4gk8lhxa" path="res://assets/sprites/symbol_tomato.png" id="4_u8aud"]
+[ext_resource type="Texture2D" uid="uid://c5yr5pw1u0th5" path="res://assets/sprites/suit_spades.png" id="5_mjafy"]
+[ext_resource type="Texture2D" uid="uid://datbjpgm4rxri" path="res://assets/sprites/symbol_theo.png" id="6_u8aud"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qtxws"]
 
@@ -14,23 +18,88 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_60ej6")
 
-[node name="Button" type="Button" parent="." unique_id=752132036]
+[node name="Button1" type="Button" parent="." unique_id=344802796]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -69.5
-offset_top = -10.5
-offset_right = 69.5
-offset_bottom = 10.5
+offset_left = -72.0
+offset_top = 14.0
+offset_right = 72.0
+offset_bottom = 38.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("1_qtxws")
+theme_override_fonts/font = ExtResource("2_60ej6")
 theme_override_font_sizes/font_size = 12
 theme_override_styles/normal = SubResource("StyleBoxEmpty_qtxws")
-text = "START RUN"
+text = "play Noir"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Button2" type="Button" parent="." unique_id=752132036]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.0
+offset_top = 38.0
+offset_right = 130.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_60ej6")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qtxws")
+text = "play some Russian Hardbass song"
+
+[node name="Button3" type="Button" parent="." unique_id=745887819]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = 62.0
+offset_right = 72.0
+offset_bottom = 86.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_60ej6")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qtxws")
+text = "play RainState"
+
+[node name="OptionButton" type="OptionButton" parent="." unique_id=234618367]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 24.0
+offset_right = 272.0
+offset_bottom = 64.0
+theme_override_fonts/font = ExtResource("2_60ej6")
+theme_override_font_sizes/font_size = 12
+alignment = 1
+selected = 0
+item_count = 4
+popup/item_0/text = "Apple Deck"
+popup/item_0/icon = ExtResource("3_rtdsu")
+popup/item_0/id = 0
+popup/item_1/text = "Tomato Deck"
+popup/item_1/icon = ExtResource("4_u8aud")
+popup/item_1/id = 1
+popup/item_2/text = "Suits Deck"
+popup/item_2/icon = ExtResource("5_mjafy")
+popup/item_2/id = 2
+popup/item_3/text = "Secret Deck"
+popup/item_3/icon = ExtResource("6_u8aud")
+popup/item_3/id = 3
+
+[connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_option_button_item_selected"]

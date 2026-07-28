@@ -3,14 +3,14 @@ extends Node
 
 const LEVEL_SCENE = preload("uid://vm334jqbvcui")
 const CHOICE_SCENE = preload("uid://fi071o5s7os0")
-
+const START_SCENE = preload("uid://duudfofpgv5ik")
 
 var deck: DeckData
 
 
-func start_run(starting_deck: DeckData) -> void:
+func start_run(starting_deck: DeckData, level: LevelData) -> void:
 	deck = starting_deck.duplicate_deep()
-	start_level(preload("uid://dy4ue833d6q3y"))
+	start_level(level)
 	
 
 func start_level(level: LevelData) -> void:
@@ -23,4 +23,4 @@ func start_level(level: LevelData) -> void:
 
 func finish_level() -> void:
 	RhythmPlayer.stop()
-	get_tree().change_scene_to_packed(CHOICE_SCENE)
+	get_tree().change_scene_to_packed(START_SCENE)
