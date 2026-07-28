@@ -55,3 +55,7 @@ func get_rating_string(rating: HitRating) -> String:
 			return "PERFECT"
 		_:
 			return ""
+
+
+func ms(time_s: float) -> float:
+	return time_s * 1000

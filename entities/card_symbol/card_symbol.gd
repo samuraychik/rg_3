@@ -22,14 +22,22 @@ var hit_base: int
 var is_missed: bool = false
 
 
+func setup(_slot_id: int, _cue_base: int, _hit_base: int, _level_context: LevelContext) -> void:
+	slot_id = _slot_id
+	cue_base = _cue_base
+	hit_base = _hit_base
+	level_context = _level_context
+	level_context.hit_verified.connect(on_hit_verified)
+
+
 func _physics_process(_delta: float) -> void:
 	if not RhythmPlayer.playing or is_missed:
 		return
-	
+
 	process_cues()
 
 	if not hits.is_empty():
-		process_hits()
+		process_miss()
 
 
 func process_cues() -> void:
@@ -41,41 +49,36 @@ func process_cues() -> void:
 			cue.used = true
 
 
-func process_hits() -> void:
+func process_hit_or_hold() -> void:
 	var hit: HitData = hits.back()
+
 	if hit.hold_time == 0:
 		process_hit(hit)
 	else:
 		process_hold(hit)
 
 
+func process_miss() -> void:
+	var hit_time := get_hit_time(hits.back())
+	var hit_delta := RhythmPlayer.song_position - hit_time
+
+	if Utils.ms(hit_delta) > level_context.windows.ok:
+		is_missed = true
+		symbol_hit.emit(self, Utils.HitRating.MISS)
+
+
 func process_hit(hit: HitData) -> void:
-	var hit_time := (hit_base + hit.beat) * RhythmPlayer.beat_length
-	var hit_delta := (RhythmPlayer.song_position - hit_time) * 1000
+	var hit_time := get_hit_time(hit)
+	var hit_delta := RhythmPlayer.song_position - hit_time
 
-	if hit_delta > level_context.windows.ok or Input.is_action_just_pressed("hit"):
-		var rating := level_context.get_rating(hit_delta)
-		symbol_hit.emit(self, rating)
-
-		if rating == Utils.HitRating.IGNORED:
-			return
-
-		hits.pop_back()
-		if rating == Utils.HitRating.MISS:
-			is_missed = true
-		else:
-			hit.effect.call()
+	var rating := level_context.get_rating(hit_delta)
+	symbol_hit.emit(self, rating)
+	hit.effect.call()
+	hits.pop_back()
 
 
 func process_hold(_hold: HitData) -> void:
 	pass
-
-
-func setup(_slot_id: int, _cue_base: int, _hit_base: int, _level_context: LevelContext) -> void:
-	slot_id = _slot_id
-	cue_base = _cue_base
-	hit_base = _hit_base
-	level_context = _level_context
 
 
 func spawn() -> void:
@@ -109,5 +112,21 @@ func next_frame() -> void:
 	sprite.frame += 1
 
 
+func get_hit_time(hit: HitData) -> float:
+	return (hit_base + hit.beat) * RhythmPlayer.beat_length
+
+
+func get_next_hit_time() -> float:
+	if is_missed or hits.is_empty():
+		return -INF
+
+	return get_hit_time(hits.back())
+	
+
 func on_spawn() -> void:
 	pass
+
+
+func on_hit_verified(hit_time: float) -> void:
+	if get_next_hit_time() == hit_time:
+		process_hit_or_hold()

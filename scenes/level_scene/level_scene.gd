@@ -31,6 +31,12 @@ func _physics_process(_delta: float) -> void:
 	if RhythmPlayer.song_position >= current_beat * RhythmPlayer.beat_length:
 		on_beat()
 		current_beat += 1
+		print(current_beat)
+		if current_beat > level_context.length:
+			RunManager.finish_level()
+
+	if Input.is_action_just_pressed("hit"):
+		verify_hit(RhythmPlayer.song_position)
 
 
 func on_beat() -> void:
@@ -49,6 +55,7 @@ func on_beat() -> void:
 func setup(deck: DeckData, level: LevelData) -> void:
 	level_context = LevelContext.new()
 	level_context.deck = deck.cards.duplicate_deep()
+	level_context.length = level.length
 	level_context.windows = level.windows
 	level_context.bar_size = level.bar_size
 	level_context.slots = []
@@ -126,3 +133,25 @@ func get_rating_color(rating: Utils.HitRating) -> Color:
 			return Color.from_rgba8(180, 32, 42)
 		_:
 			return Color.WHITE
+
+
+func verify_hit(hit_time: float) -> void:
+	const BAD_RATINGS = [Utils.HitRating.MISS, Utils.HitRating.IGNORED]
+
+	var next_hits: Array[float] = []
+
+	for slot in slots:
+		if slot.card == null:
+			next_hits.push_back(-INF)
+			continue
+		next_hits.push_back(slot.card.symbol_node.get_next_hit_time())
+	next_hits.push_back(lever.next_hit_time)
+
+	if next_hits.all(func(x: float): return BAD_RATINGS.has(level_context.get_rating(hit_time - x))):
+		process_rating(Utils.HitRating.MISS)
+		return
+
+	var active_hits := next_hits.filter(func(x: float): return not BAD_RATINGS.has(level_context.get_rating(hit_time - x)))
+	if not active_hits.is_empty():
+		level_context.hit_verified.emit(active_hits.min())
+	

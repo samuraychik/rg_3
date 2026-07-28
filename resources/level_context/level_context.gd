@@ -3,7 +3,10 @@ class_name LevelContext extends Resource
 signal full_pattern
 signal card_drawn
 signal jackpot
+signal hit_verified(hit_time: float)
 
+
+var length: float
 var windows: WindowsData
 var bar_size: int
 
@@ -20,17 +23,23 @@ func draw() -> CardData:
 
 
 func get_rating(delta: float) -> Utils.HitRating:
-	if delta > windows.ok:
+	var delta_ms = Utils.ms(delta)
+
+	if delta_ms > windows.ok:
 		return Utils.HitRating.MISS
 
-	if delta < -windows.ok:
+	if delta_ms < -windows.ok:
 		return Utils.HitRating.IGNORED
 
-	var abs_delta = absf(delta)
-	if abs_delta <= windows.perfect:
+	var abs_delta_ms = absf(delta_ms)
+	if abs_delta_ms <= windows.perfect:
 		return Utils.HitRating.PERFECT
-	if abs_delta <= windows.great:
+	if abs_delta_ms <= windows.great:
 		return Utils.HitRating.GREAT
-	if abs_delta <= windows.good:
+	if abs_delta_ms <= windows.good:
 		return Utils.HitRating.GOOD
 	return Utils.HitRating.OK
+
+
+func get_card_at(slot_id: int) -> CardData:
+	return slots[slot_id]
