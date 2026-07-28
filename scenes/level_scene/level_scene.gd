@@ -7,6 +7,8 @@ class_name LevelScene extends Node2D
 @onready var combo_label: JumpyLabel = $ComboLabel
 @onready var rating_label: JumpyLabel = $RatingLabel
 
+@onready var miss_sfx: AudioStreamPlayer = $MissSfx
+@onready var level_animator: AnimationPlayer = $LevelAnimator
 
 @export var card_scene: PackedScene
 @export var slot_scene: PackedScene
@@ -148,10 +150,17 @@ func verify_hit(hit_time: float) -> void:
 	next_hits.push_back(lever.next_hit_time)
 
 	if next_hits.all(func(x: float): return BAD_RATINGS.has(level_context.get_rating(hit_time - x))):
-		process_rating(Utils.HitRating.MISS)
+		on_false_hit()
 		return
 
 	var active_hits := next_hits.filter(func(x: float): return not BAD_RATINGS.has(level_context.get_rating(hit_time - x)))
 	if not active_hits.is_empty():
 		level_context.hit_verified.emit(active_hits.min())
+	
+
+func on_false_hit() -> void:
+	process_rating(Utils.HitRating.MISS)
+	level_animator.stop()
+	level_animator.play("miss")
+	miss_sfx.play()
 	

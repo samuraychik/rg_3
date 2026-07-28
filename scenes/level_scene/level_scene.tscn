@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://mfo8m6supc6r" path="res://entities/lever/lever.tscn" id="5_dq1ac"]
 [ext_resource type="Script" uid="uid://c0gml08tvyi3w" path="res://entities/level_bg/level_bg.gd" id="5_kxscv"]
 [ext_resource type="PackedScene" uid="uid://bfyqq22kflq7u" path="res://entities/ui/jumpy_label/jumpy_label.tscn" id="8_nyfti"]
+[ext_resource type="AudioStream" uid="uid://i5tny6cw8hrb" path="res://assets/sfx/miss.wav" id="10_bon1w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kxscv"]
 shader = ExtResource("4_i3xij")
@@ -30,6 +31,68 @@ font = ExtResource("4_10ca3")
 font_size = 10
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_bon1w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MachineSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 94)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MachineSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yqoyj"]
+resource_name = "miss"
+length = 0.13333500695396214
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MachineSprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(160, 94), Vector2(164, 94), Vector2(160, 94), Vector2(156, 94), Vector2(160, 94)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MachineSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.1, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gdo2j"]
+_data = {
+&"RESET": SubResource("Animation_bon1w"),
+&"miss": SubResource("Animation_yqoyj")
+}
 
 [node name="LevelScene" type="Node2D" unique_id=229895336]
 script = ExtResource("1_odx7e")
@@ -111,3 +174,8 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="LevelAnimator" type="AnimationPlayer" parent="." unique_id=395327603]
+libraries/ = SubResource("AnimationLibrary_gdo2j")
+
+[node name="MissSfx" type="AudioStreamPlayer" parent="." unique_id=1540793169]
+stream = ExtResource("10_bon1w")
+volume_db = -4.0
